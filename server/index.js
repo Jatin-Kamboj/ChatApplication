@@ -12,10 +12,10 @@ app.use(router);
 
 io.on("connection", (client) => {
   client.on("event", (data) => {
-    console.log("We have a new Connection");
+    console.log("We have a new Connection!!!");
   });
   client.on("disconnect", () => {
-    console.log("Connection has Disconnected");
+    console.log("User had left..");
   });
 });
 
