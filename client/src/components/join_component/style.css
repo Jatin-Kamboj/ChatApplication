@@ -68,3 +68,10 @@ body {
 button:focus {
   outline: 0;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-not-allowed {
+  cursor: not-allowed;
+}

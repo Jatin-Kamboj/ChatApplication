@@ -23,16 +23,24 @@ function Join() {
         <div>
           <input
             placeholder="Room"
-            className="joinInput mt-20"
+            className={`joinInput mt-20`}
             type="text"
             onChange={(event) => setRoom(event.target.value)}
           />
         </div>
         <Link
           onClick={(event) => (!name || !room ? event.preventDefault() : null)}
+          className={`${
+            !name || !room ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
           to={`/chat?name=${name}&room=${room}`}
         >
-          <button className="button mt-20" type="button">
+          <button
+            className={`button mt-20 ${
+              !name || !room ? "cursor-not-allowed" : "cursor-pointer"
+            }`}
+            type="button"
+          >
             Sign In
           </button>
         </Link>
