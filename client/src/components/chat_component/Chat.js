@@ -63,7 +63,7 @@ function Chat(props) {
   return (
     <div className="outerContainer">
       <div className="container">
-        <InfoBarComponent room={room} />
+        <InfoBarComponent roomUsers={roomUsers} room={room} />
         <MessagesComponent messages={messages} name={name} />
         <InputComponent setmessage={setMessage} sendMessage={sendMessage} />
       </div>
