@@ -2,6 +2,7 @@ const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
 const router = require("./routers/router");
+const cors = require("cors");
 const {
   addUser,
   getUser,
@@ -16,6 +17,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(router);
+app.use(cors());
 
 io.on("connection", (client) => {
   /**

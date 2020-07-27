@@ -46,6 +46,11 @@ const getUser = ({ id }) => {
  * Helper function will be used to get all the users of a room
  * @param {room} Room name whose users are to be fetched
  */
-const getUsersInRoom = (room) => users.find((user) => user.room === room);
+const getUsersInRoom = (room) => {
+  console.log("getUsersInRoom", users);
+  const roomUsers = users.filter((user) => user.room === room);
+  console.log("roomUsers", roomUsers);
+  return roomUsers;
+};
 
 module.exports = { addUser, removeUser, getUser, getUsersInRoom };

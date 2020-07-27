@@ -9,7 +9,7 @@ const InfoBarComponent = ({ room, roomUsers: { users } }) => {
       <div className="leftInnerContainer">
         <img alt="Online " src={onlineIcon} />
         <h3>{room}</h3>
-        <p>Online Users : {users && users?.users?.length}</p>
+        <p>Online Users : {users && users?.length}</p>
       </div>
       <div className="rightInnerContainer">
         <a href="/">
