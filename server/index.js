@@ -68,11 +68,13 @@ io.on("connection", (client) => {
     let user = getUser(client.id);
     if (user) {
       user = removeUser(client.id);
-      client.to(user?.room).emit("message", `${user?.name} has left !!`);
+      client.to(user.room).emit("message", `${user.name} has left !!`);
     }
 
     console.log("User had left..");
   });
 });
 
-server.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+server.listen(process.env.PORT || PORT, () =>
+  console.log(`Server is running on ${PORT}`)
+);

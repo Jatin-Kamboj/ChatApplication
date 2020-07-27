@@ -9,7 +9,7 @@ import "./style.css";
 let socket;
 
 function Chat(props) {
-  const ENDPOINT = "localhost:5000";
+  const ENDPOINT = "https://node-chat-application-sockets.herokuapp.com/";
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [room, setRoom] = useState("");
