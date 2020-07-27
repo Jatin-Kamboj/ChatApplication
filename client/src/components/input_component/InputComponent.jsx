@@ -8,6 +8,7 @@ const InputComponent = ({ message, setmessage, sendMessage }) => {
       <input
         className="input"
         value={message}
+        placeholder="Type your message...."
         onChange={(event) => setmessage(event.target.value)}
       />
       <button className="sendButton" onClick={(event) => sendMessage(event)}>

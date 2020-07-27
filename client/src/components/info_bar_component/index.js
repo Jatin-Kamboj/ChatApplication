@@ -1,17 +1,17 @@
 import React from "react";
 import { closeImage, onlineIcon } from "../../assets/icons";
-import "./style.css";
+import styles from "./style.module.css";
 
 const InfoBarComponent = ({ room, roomUsers: { users } }) => {
   console.log("InfoBarComponent", users);
   return (
-    <div className="infoBar">
-      <div className="leftInnerContainer">
-        <img alt="Online " src={onlineIcon} />
+    <div className={styles.infoBar}>
+      <div className={`${styles.leftInnerContainer}`}>
+        <img alt="Online " className={styles.onlineIcon} src={onlineIcon} />
         <h3>{room}</h3>
-        <p>Online Users : {users && users?.length}</p>
+        <p className="mb-1 ml-2">Online Users : {users && users?.length}</p>
       </div>
-      <div className="rightInnerContainer">
+      <div className={styles.rightInnerContainer}>
         <a href="/">
           <img alt="Close Tag" src={closeImage} />
         </a>

@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import InfoBarComponent from "../info_bar_component";
 import InputComponent from "../input_component/InputComponent";
 import MessagesComponent from "../messages_component/MessagesComponent";
-import "./style.css";
+import styles from "./style.module.css";
 
 let socket;
 
@@ -60,11 +60,11 @@ function Chat(props) {
     }
   };
 
-  console.log("message", message, messages, roomUsers);
+  console.log("message", styles, message, messages, roomUsers);
 
   return (
-    <div className="outerContainer">
-      <div className="container">
+    <div className={styles.outerContainer}>
+      <div className={styles.container}>
         <InfoBarComponent roomUsers={roomUsers} room={room} />
         <MessagesComponent messages={messages} name={name} />
         <InputComponent setmessage={setMessage} sendMessage={sendMessage} />

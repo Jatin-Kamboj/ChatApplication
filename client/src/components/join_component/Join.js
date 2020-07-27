@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
+import { Row, Col } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import "./style.css";
 
@@ -9,43 +10,52 @@ function Join() {
   const [room, setRoom] = useState("");
 
   return (
-    <div className="joinOuterContainer">
-      <div className="joinInnerContainer">
-        <h1 className="heading">Join and Create Chat rooms</h1>
-        <div>
-          <input
-            placeholder="Name"
-            className="joinInput"
-            type="text"
-            onChange={(event) => setName(event.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            placeholder="Room"
-            className={`joinInput mt-20`}
-            type="text"
-            onChange={(event) => setRoom(event.target.value)}
-          />
-        </div>
-        <Link
-          onClick={(event) => (!name || !room ? event.preventDefault() : null)}
-          className={`${
-            !name || !room ? "cursor-not-allowed" : "cursor-pointer"
-          }`}
-          to={`/chat?name=${name}&room=${room}`}
-        >
-          <button
-            className={`button mt-20 ${
+    <Fragment>
+      {/* <Row>
+        <Col md={12}>
+          <h1>Chat Application using Node.js and Sockets</h1>
+        </Col>
+      </Row>*/}
+      <div className="joinOuterContainer">
+        <div className="joinInnerContainer">
+          <h1 className="heading">Join and Create Chat rooms</h1>
+          <div>
+            <input
+              placeholder="Name"
+              className="joinInput"
+              type="text"
+              onChange={(event) => setName(event.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              placeholder="Room"
+              className={`joinInput mt-20`}
+              type="text"
+              onChange={(event) => setRoom(event.target.value)}
+            />
+          </div>
+          <Link
+            onClick={(event) =>
+              !name || !room ? event.preventDefault() : null
+            }
+            className={`${
               !name || !room ? "cursor-not-allowed" : "cursor-pointer"
             }`}
-            type="button"
+            to={`/chat?name=${name}&room=${room}`}
           >
-            Sign In
-          </button>
-        </Link>
+            <button
+              className={`button mt-20 ${
+                !name || !room ? "cursor-not-allowed" : "cursor-pointer"
+              }`}
+              type="button"
+            >
+              Sign In
+            </button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
 

@@ -4,9 +4,9 @@
 }
 
 .input {
-  border: none;
+  border: darkgray 2px solid;
   border-radius: 0;
-  padding: 5%;
+  padding: 3%;
   width: 80%;
   font-size: 1.2em;
 }
