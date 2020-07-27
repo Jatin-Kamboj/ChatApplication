@@ -3,6 +3,7 @@ import querystring from "query-string";
 import io from "socket.io-client";
 import InfoBarComponent from "../info_bar_component";
 import InputComponent from "../input_component/InputComponent";
+import MessagesComponent from "../messages_component/MessagesComponent";
 import "./style.css";
 
 let socket;
@@ -12,11 +13,12 @@ function Chat(props) {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [room, setRoom] = useState("");
+  const [name, setName] = useState("");
 
   useEffect(() => {
     const { name, room } = querystring.parse(props.location.search);
     setRoom(room);
-    console.log("data", name, room);
+    setName(name);
     socket = io(ENDPOINT);
 
     socket.emit("join", { name, room }, (error) => {
@@ -32,6 +34,7 @@ function Chat(props) {
     };
   }, [ENDPOINT, props.location.search]);
 
+  console.log("data", name, room);
   /**
    * UseEffect will be used to handle all the text messages
    */
@@ -58,6 +61,7 @@ function Chat(props) {
     <div className="outerContainer">
       <div className="container">
         <InfoBarComponent room={room} />
+        <MessagesComponent messages={messages} name={name} />
         <InputComponent setmessage={setMessage} sendMessage={sendMessage} />
       </div>
     </div>

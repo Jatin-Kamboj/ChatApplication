@@ -39,6 +39,11 @@ io.on("connection", (client) => {
       .to(user.room)
       .emit("message", { user: "admin", text: `${user.name} has joined!` });
 
+    // Inform other users of other users avilabble in the Application
+    client
+      .to(user.room)
+      .emit("roomData", { room: user.room, users: getUsersInRoom(user.room) });
+
     client.join(user.room);
     callback();
   });
@@ -47,6 +52,10 @@ io.on("connection", (client) => {
     const user = getUser({ id: client.id });
     if (user) {
       io.to(user.room).emit("message", { user: user.name, text: message });
+      client.to(user.room).emit("roomData", {
+        room: user.room,
+        users: getUsersInRoom(user.room),
+      });
     }
 
     // Fucntion is called when a message has been sent to the user in a room.
@@ -54,10 +63,12 @@ io.on("connection", (client) => {
   });
 
   client.on("disconnect", () => {
-    const user = getUser(client.id);
+    let user = getUser(client.id);
     if (user) {
-      removeUser(client.id);
+      user = removeUser(client.id);
+      client.to(user?.room).emit("message", `${user?.name} has left !!`);
     }
+
     console.log("User had left..");
   });
 });

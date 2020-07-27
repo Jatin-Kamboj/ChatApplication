@@ -6,7 +6,7 @@ const InfoBarComponent = ({ room }) => {
   return (
     <div className="infoBar">
       <div className="leftInnerContainer">
-        <img alt="Online Image" src={onlineIcon} />
+        <img alt="Online " src={onlineIcon} />
         <h3>{room}</h3>
       </div>
       <div className="rightInnerContainer">
