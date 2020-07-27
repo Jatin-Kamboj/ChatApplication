@@ -14,6 +14,7 @@ function Chat(props) {
   const [message, setMessage] = useState("");
   const [room, setRoom] = useState("");
   const [name, setName] = useState("");
+  const [roomUsers, setRoomUsers] = useState([]);
 
   useEffect(() => {
     const { name, room } = querystring.parse(props.location.search);
@@ -27,7 +28,9 @@ function Chat(props) {
         // alert(error);
       }
     });
-
+    socket.on("roomData", (data) => {
+      setRoomUsers(data);
+    });
     return () => {
       socket.emit("disconnect");
       socket.off();
@@ -55,7 +58,7 @@ function Chat(props) {
     }
   };
 
-  console.log("message", message, messages);
+  console.log("message", message, messages, roomUsers);
 
   return (
     <div className="outerContainer">

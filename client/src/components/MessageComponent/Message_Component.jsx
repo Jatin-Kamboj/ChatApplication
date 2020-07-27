@@ -14,13 +14,13 @@ const MessageComponent = ({ message: { user, text }, name }) => {
     <div className="messageContainer justifyEnd">
       <p className="sentText pr-10">{trimmedName}</p>
       <div className="messageBox backgroundBlue">
-        <p className="messageText ">{ReactEmoji.ReactEmoji(text)}</p>
+        <p className="messageText ">{ReactEmoji.emojify(text)}</p>
       </div>
     </div>
   ) : (
     <div className="messageContainer justifyStart">
       <div className="messageBox backgroundLight">
-        <p className="sentText">{ReactEmoji.ReactEmoji(text)}</p>
+        <p className="sentText">{ReactEmoji.emojify(text)}</p>
       </div>
       <p className="sentText pl-10">{user}</p>
     </div>
