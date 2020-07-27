@@ -24,7 +24,7 @@ function Chat(props) {
     socket = io(ENDPOINT);
 
     socket.emit("join", { name, room }, (error) => {
-      console.log("error", error);
+      // console.log("error", error);
       if (error) {
         // alert(error);
       }
@@ -36,13 +36,13 @@ function Chat(props) {
     };
   }, [ENDPOINT, props.location.search]);
 
-  console.log("data", name, room);
+  // console.log("data", name, room);
   /**
    * UseEffect will be used to handle all the text messages
    */
   useEffect(() => {
     socket.on("message", (message) => {
-      console.log("useEffect  message", message);
+      // console.log("useEffect  message", message);
       setMessages([...messages, message]);
     });
 
@@ -61,7 +61,7 @@ function Chat(props) {
     }
   };
 
-  console.log("message", styles, message, messages, roomUsers);
+  // console.log("message", styles, message, messages, roomUsers);
 
   return (
     <div className={styles.outerContainer}>

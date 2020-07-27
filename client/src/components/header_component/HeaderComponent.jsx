@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const HeaderComponent = (props) => {
   const loggedInUser = localStorage.getItem("loggedInUser");
-  console.log("HeaderComponent", props);
+  // console.log("HeaderComponent", props);
   return (
     <Navbar bg="dark" expand="lg">
       <Navbar.Brand title="Chat Application" href="/">

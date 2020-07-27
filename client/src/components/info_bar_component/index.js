@@ -3,7 +3,7 @@ import { closeImage, onlineIcon } from "../../assets/icons";
 import styles from "./style.module.css";
 
 const InfoBarComponent = ({ room, roomUsers: { users } }) => {
-  console.log("InfoBarComponent", users);
+  // console.log("InfoBarComponent", users);
   return (
     <div className={styles.infoBar}>
       <div className={`${styles.leftInnerContainer}`}>
