@@ -12,7 +12,7 @@ const InfoBarComponent = ({ room, roomUsers: { users } }) => {
         <p className="mb-1 ml-2">Online Users : {users && users?.length}</p>
       </div>
       <div className={styles.rightInnerContainer}>
-        <a href="/">
+        <a onClick={() => localStorage.removeItem("loggedInUser")} href="/">
           <img alt="Close Tag" src={closeImage} />
         </a>
       </div>

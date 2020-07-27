@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const HeaderComponent = (props) => {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  console.log("HeaderComponent", props);
   return (
     <Navbar bg="dark" expand="lg">
       <Navbar.Brand title="Chat Application" href="/">
@@ -15,6 +17,21 @@ const HeaderComponent = (props) => {
         <Nav className="mr-auto">
           <NavLink to="/">Home</NavLink>
         </Nav>
+      </Navbar.Collapse>
+      <Navbar.Collapse className="justify-content-end">
+        {loggedInUser ? (
+          <Navbar.Text>
+            Signed in as:
+            <a
+              className="text-uppercase font-weight-bold ml-3 mr-4"
+              onClick={(event) => event.preventDefault()}
+            >
+              {loggedInUser}
+            </a>
+          </Navbar.Text>
+        ) : (
+          <Navbar.Text className="mr-3">No User Active</Navbar.Text>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );

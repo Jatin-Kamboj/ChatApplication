@@ -20,6 +20,7 @@ function Chat(props) {
     const { name, room } = querystring.parse(props.location.search);
     setRoom(room);
     setName(name);
+    localStorage.setItem("loggedInUser", name);
     socket = io(ENDPOINT);
 
     socket.emit("join", { name, room }, (error) => {
