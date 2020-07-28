@@ -11,7 +11,7 @@ Client consists of UI logic using React.js and various other third party Package
 
 # Deployment 
 
-**Server side logic of application is hosted on Heroku**
+**Client side logic of application is hosted on Netlify**
 [Chat Application Link](https://cranky-noether-981566.netlify.app)
 
 **Server side logic of application is hosted on Heroku**
